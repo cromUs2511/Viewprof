@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-mapua-red: #C8102E;
+  --color-mapua-red-dark: #9B0D23;
+  --color-mapua-black: #1A1A1A;
+  --color-mapua-charcoal: #2D2D2D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-mapua-gray-light text-mapua-black antialiased;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-mapua-gray rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-mapua-red;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  @apply outline-none ring-2 ring-mapua-red ring-offset-2;
+}
+
+/* Table utilities */
+.table-container {
+  @apply overflow-x-auto rounded-lg border border-gray-200;
+}
+
+.data-table {
+  @apply w-full text-sm;
+}
+
+.data-table th {
+  @apply bg-mapua-charcoal text-white text-left px-4 py-3 font-medium;
+}
+
+.data-table td {
+  @apply px-4 py-3 border-t border-gray-200;
+}
+
+.data-table tbody tr {
+  @apply hover:bg-mapua-gray-light/50 transition-colors;
+}
+
+.data-table tbody tr:nth-child(even) {
+  @apply bg-white;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-fresh { @apply bg-green-100 text-green-800; }
+.badge-stale { @apply bg-amber-100 text-amber-800; }
+.badge-error { @apply bg-red-100 text-red-800; }
+.badge-idle { @apply bg-gray-100 text-gray-800; }
+.badge-running { @apply bg-blue-100 text-blue-800; }
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-150;
+}
+
+.btn-primary {
+  @apply btn bg-mapua-red text-white hover:bg-mapua-red-dark focus:ring-2 focus:ring-mapua-red focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply btn bg-white text-mapua-black border border-gray-300 hover:bg-gray-50;
+}
+
+.btn-ghost {
+  @apply btn text-mapua-gray hover:text-mapua-red hover:bg-mapua-gray-light;
+}
+
+.btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Input styles */
+.input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-mapua-black
+         placeholder:text-gray-400
+         focus:outline-none focus:ring-2 focus:ring-mapua-red focus:border-transparent
+         transition-all duration-150;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+}
+
+.card-header {
+  @apply px-6 py-4 border-b border-gray-200;
+}
+
+.card-body {
+  @apply p-6;
+}
+
+/* Empty state */
+.empty-state {
+  @apply flex flex-col items-center justify-center py-12 px-4 text-center;
+}
+
+.empty-state-icon {
+  @apply text-gray-300 mb-3;
+}
+
+.empty-state-title {
+  @apply text-lg font-medium text-mapua-charcoal mb-1;
+}
+
+.empty-state-text {
+  @apply text-mapua-gray text-sm max-w-xs;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .data-table th, .data-table td {
+    @apply px-3 py-2;
+  }
+  .card-body {
+    @apply p-4;
+  }
+}
