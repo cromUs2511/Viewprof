@@ -1,7 +1,6 @@
 /** Subject Catalog page */
 import { useState, useMemo } from 'react'
 import { useSubjects, useSyncStatus, formatRelativeTime } from '../hooks/useCatalog'
-import { Layout } from '../components/Layout'
 import { DataTable } from '../components/DataTable'
 import { SearchBar } from '../components/SearchBar'
 import { Pagination } from '../components/Pagination'
@@ -32,7 +31,7 @@ export function SubjectsPage() {
   const totalPages = Math.ceil(filtered.length / pageSize)
 
   return (
-    <Layout>
+    
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
@@ -136,6 +135,6 @@ export function SubjectsPage() {
           )}
         </div>
       </div>
-    </Layout>
+    
   )
 }

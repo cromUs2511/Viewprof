@@ -2,7 +2,6 @@
 import { useState, useMemo } from 'react'
 import { useProfessors, formatRelativeTime, getStatusClass } from '../hooks/useCatalog'
 import { useSyncStatus } from '../hooks/useCatalog'
-import { Layout } from '../components/Layout'
 import { DataTable } from '../components/DataTable'
 import { SearchBar } from '../components/SearchBar'
 import { Pagination } from '../components/Pagination'
@@ -34,26 +33,23 @@ export function ProfessorsPage() {
 
   if (isLoading) {
     return (
-      <Layout>
-        <div className="space-y-6">
-          <h1 className="text-2xl font-bold text-mapua-black">Professor Directory</h1>
-          <DataTable
-            columns={[
-              { key: 'name', header: 'Professor' },
-              { key: 'course_count', header: 'Courses' },
-            ]}
-            data={[]}
-            keyExtractor={(r) => r.name}
-            isLoading
-          />
-        </div>
-      </Layout>
+      <div className="space-y-6">
+        <h1 className="text-2xl font-bold text-mapua-black">Professor Directory</h1>
+        <DataTable
+          columns={[
+            { key: 'name', header: 'Professor' },
+            { key: 'course_count', header: 'Courses' },
+          ]}
+          data={[]}
+          keyExtractor={(r) => r.name}
+          isLoading
+        />
+      </div>
     )
   }
 
   return (
-    <Layout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-mapua-black">Professor Directory</h1>
@@ -141,6 +137,6 @@ export function ProfessorsPage() {
           )}
         </div>
       </div>
-    </Layout>
+    
   )
 }

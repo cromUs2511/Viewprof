@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSyncStatus, useRefreshCatalog, formatRelativeTime, getStatusClass, getFreshnessClass } from '../hooks/useCatalog'
-import { Layout } from '../components/Layout'
 import { StatusBadge } from '../components/StatusBadge'
 import { Card } from '../components/Card'
 
@@ -30,8 +29,7 @@ export function OverviewPage() {
   const lastAttempt = status?.last_attempt
 
   return (
-    <Layout>
-      <div className="space-y-6">
+    <div className="space-y-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
@@ -271,6 +269,6 @@ export function OverviewPage() {
           </Card>
         )}
       </div>
-    </Layout>
-  )
+    )
+  }
 }
